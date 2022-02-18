@@ -7,16 +7,8 @@ using System.Text;
 
 namespace ShopApplication.DataAccess.Abstract
 {
-    public interface IProductDal
+    public interface IProductDal:IRepository<Product>
     {
-        Product GetById(int id); //geri dönüş tipi product ismi GetById
-        Product GetOne(Expression<Func<Product, bool>> filter); //bulduğu ilk kaydı geri alacak!
-        IQueryable<Product> GetAll(Expression<Func<Product, bool>> filter); //bulduğu bütün kayıtları geri alacak!
-
-        void Create(Product entity);
-
-        void Update(Product entity);
-
-        void Delete(Product entity);
+        IEnumerable<Product> GetPopularProducts();
     }
 }
